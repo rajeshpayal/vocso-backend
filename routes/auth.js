@@ -19,11 +19,6 @@ router.post("/callback", async (req, res) => {
       return res.status(400).json({ message: "Token and email are required" });
     }
 
-    // OPTION 1: Use the standard token validation
-    // const isValid = await authService.validateToken(token);
-
-    // OPTION 2: For development purposes only - bypass validation
-    // Comment this line and uncomment the line above for production
     const isValid = await authService.validateToken(token);
 
     console.log("Token validation result:", isValid);
